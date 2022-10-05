@@ -1,0 +1,95 @@
+	<!DOCTYPE html>
+	<!-- Created By CodingNepal -->
+	<html lang="en" dir="ltr">
+	   <head>
+			<meta charset="utf-8">
+			<title>Ingreso y registro</title>
+			<link rel="stylesheet" href="static/css/styles.css">
+			<link rel="stylesheet" href="static/css/main1.css">
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		</head>
+
+	   <body>
+		<nav>
+			<div class="menu-icon">
+			   <span class="fas fa-bars"></span>
+			</div>
+			<div class="logo">
+				FastLogistics
+			</div>
+			<div class="nav-items">
+			   <li><a href="/main">Menu Principal</a></li>
+			   <li><a href="/info">Informacion</a></li>
+			   <li><a href="/contact">Contact</a></li>
+			   <li><a href="#">Nuestras redes</a></li>
+			</div>
+			<div class="search-icon">
+			   <span class="fas fa-search"></span>
+			</div>
+			<div class="cancel-icon">
+			   <span class="fas fa-times"></span>
+			</div>
+			<form action="#">
+			   <input type="search" class="search-data" placeholder="Buscar" required>
+			   <button type="submit" class="fas fa-search"></button>
+			</form>
+		 </nav>
+		
+		  <div class="wrapper">
+			 <div class="title-text">
+				<div class="title login">
+				   Ingreso
+				</div>
+				<div class="title signup">
+				   Registro
+				</div>
+			 </div>
+			 <div class="form-container">
+				<div class="slide-controls">
+				   <input type="radio" name="slide" id="login" checked>
+				   <input type="radio" name="slide" id="signup">
+				   <label for="login" class="slide login">Ingreso</label>
+				   <label for="signup" class="slide signup">Registro</label>
+				   <div class="slider-tab"></div>
+				</div>
+				<div class="form-inner">
+				   <form action="#" class="login" method="post">
+					  <div class="field">
+						 <input type="text" placeholder="Ingresa tu correo" required>
+					  </div>
+					  <div class="field">
+						 <input type="password" placeholder="Ingresa tu contraseña" required>
+					  </div>
+					  <div class="pass-link">
+						 <a href="#">'Olvidaste tu contraseña?</a>
+					  </div>
+					  <div class="field btn">
+						 <div class="btn-layer"></div>
+						 <input type="submit" value="Ingresar">
+					  </div>
+					  <div class="signup-link">
+						 ¿No eres miembro? <a href="">Registrate ahora</a>
+					  </div>
+				   </form>
+				   <form action="/signUp" class="signup" method="post">
+					  <div class="field">
+						 <input name="inputEmail" type="text" placeholder="Ingresa tu correo " required>
+					  </div>
+					  <div class="field">
+						 <input name="inputPassword" type="password" placeholder="Ingresa tu contraseña" required>
+					  </div>
+		
+					  <div class="field btn">
+						 <div class="btn-layer"></div>
+						 <input type="submit" value="Crear">
+					  </div>
+				   </form>
+				</div>
+			 </div>
+		  </div>
+		  <script src="/static/js/main1.js"></script>
+		  <script src="/static/js/js_home.js"></script>
+	   </body>
+	</html>
