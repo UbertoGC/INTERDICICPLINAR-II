@@ -1,3 +1,7 @@
+
+
+
+	
 	<!DOCTYPE html>
 	<!-- Created By CodingNepal -->
 	<html lang="en" dir="ltr">
@@ -22,8 +26,8 @@
 			<div class="nav-items">
 			   <li><a href="/main">Menu Principal</a></li>
 			   <li><a href="/info">Informacion</a></li>
-			   <li><a href="/contact">Contact</a></li>
-			   <li><a href="#">Nuestras redes</a></li>
+			   <li><a href="/contact">Nuestras redes</a></li>
+		   <li><a href="/uso">Uso de FastLogistics</a></li>
 			</div>
 			<div class="search-icon">
 			   <span class="fas fa-search"></span>
@@ -55,12 +59,12 @@
 				   <div class="slider-tab"></div>
 				</div>
 				<div class="form-inner">
-				   <form action="#" class="login" method="post">
+				   <form action="/validateLogin" method="POST" id = "form" class="login">
 					  <div class="field">
-						 <input type="text" placeholder="Ingresa tu correo" required>
+						 <input type="text" id="correo" name="correo" placeholder="Ingresa tu correo" required>
 					  </div>
 					  <div class="field">
-						 <input type="password" placeholder="Ingresa tu contraseña" required>
+						 <input type="password" id="contra" name="contra" placeholder="Ingresa tu contraseña" required>
 					  </div>
 					  <div class="pass-link">
 						 <a href="#">'Olvidaste tu contraseña?</a>
@@ -73,12 +77,14 @@
 						 ¿No eres miembro? <a href="">Registrate ahora</a>
 					  </div>
 				   </form>
-				   <form action="/signUp" class="signup" method="post">
+
+
+				   <form action="/signUp" method="POST" id = "form" class="signup">
 					  <div class="field">
-						 <input name="inputEmail" type="text" placeholder="Ingresa tu correo " required>
+						 <input type="text" id="correo" name="correo" placeholder="Ingresa tu correo "  required>
 					  </div>
 					  <div class="field">
-						 <input name="inputPassword" type="password" placeholder="Ingresa tu contraseña" required>
+						 <input type="password" id = "contra" name = "contra" placeholder="Ingresa tu contraseña" required>
 					  </div>
 		
 					  <div class="field btn">

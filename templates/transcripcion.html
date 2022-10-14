@@ -7,11 +7,38 @@
         <title>Transcripcion</title>
         <link rel="stylesheet" href="static/css/styles.css">
         <link rel="stylesheet" href="static/css/main1.css">
+        <link rel="stylesheet" href="static/css/tabla.css">
+        <link rel="stylesheet" href="static/css/r_social.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
    <body>
+      <nav>
+         <div class="menu-icon">
+            <span class="fas fa-bars"></span>
+         </div>
+         <div class="logo">
+               FastLogistics
+         </div>
+         <div class="nav-items">
+            <li><a href="/main">Menu Principal</a></li>
+            <li><a href="/info">Informacion</a></li>
+            <li><a href="/contact">Nuestras redes</a></li>
+               <li><a href="/uso">Uso de FastLogistics</a></li>
+            <li><a href="{{ url_for('logout')}}"> Cerrar Sesion </a></li>
+         </div>
+         <div class="search-icon">
+            <span class="fas fa-search"></span>
+         </div>
+         <div class="cancel-icon">
+            <span class="fas fa-times"></span>
+         </div>
+         <form action="#">
+            <input type="search" class="search-data" placeholder="Buscar" required>
+            <button type="submit" class="fas fa-search"></button>
+         </form>
+      </nav>
       <label>
          {% if texto|length != 0 %}
             {% for z in texto%}
@@ -21,33 +48,37 @@
             <label>Aqui se escribira el texto transcrito</label>
          {% endif %}
       </label>
-      <table>
-         <thead>
-            <tr>
-               <td>Cantidad</td>
-               <td>Unidad de Medida</td>
-               <td>Nombre de Producto</td>
-            </tr>
-         </thead>
-         <tbody>
-            {% for v in valores%}
+      <div class="tabla-containers" align = "right">
+         <table>
+            <thead>
                <tr>
-                  {% for ele in v %}
-                     <td>{{ele}}</td>
-                  {% endfor %}
+                  <td>Cantidad</td>
+                  <td>Unidad de Medida</td>
+                  <td>Nombre de Producto</td>
                </tr>
-            {% endfor %}
-         </tbody>
-      </table>
-      <a href="/transenviplay">
-         <button id="play">
-            <img src="https://pbs.twimg.com/profile_images/421289634782384129/9JLmseXi_400x400.png" height ="100" width="100" />
-         </button>
-      </a>
-      <a href="/transenvistop">
-         <button id="stop">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvq5jcVY1uVqhYSvb8OhWZqY6mJSEXhg4Xug&usqp=CAU" height ="100" width="100" />
-         </button>
-      </a>
+            </thead>
+            <tbody>
+               {% for v in valores%}
+                  <tr>
+                     {% for ele in v %}
+                        <td>{{ele}}</td>
+                     {% endfor %}
+                  </tr>
+               {% endfor %}
+            </tbody>
+         </table>
+      </div>
+      <p> 
+         <a href="/transenviplay" align="right">
+            <button id="play" align="right">
+               <img src="/static/images/play.png" align="left"  height ="100" width="100" />
+            </button>
+         </a>
+         <a href="/transenvistop">
+            <button id="stop">
+               <img src="/static/images/stop.png" align="left" height ="100" width="100" />
+            </button>
+         </a>
+      </p> 
    </body>
 </html>

@@ -1,4 +1,3 @@
-from time import sleep
 import sounddevice
 import asyncio
 from amazon_transcribe.client import TranscribeStreamingClient
