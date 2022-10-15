@@ -48,3 +48,4 @@ async def Recibir_Enviar():
     )
     handler = MyEventHandler(stream.output_stream)
     await asyncio.gather(Escribir_fragmento(stream), handler.handle_events())
+loop=asyncio.get_event_loop()

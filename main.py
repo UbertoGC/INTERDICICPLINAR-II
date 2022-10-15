@@ -1,4 +1,6 @@
+from asyncio import get_event_loop
 import json
+from multiprocessing.connection import wait
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_mysql_connector import MySQL
 from sonido import *
@@ -12,7 +14,6 @@ app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'Hardware+10'
 app.config['MYSQL_DB'] = 'almacen'
 mysql = MySQL(app)
-loop = asyncio.get_event_loop()
 valor=["Presiona el boton de play para iniciar",0]
 app.secret_key='mysecretkey'
 dic_cantidad={'un':'1','uno':'1','dos':'2','tres':'3','cuatro':'4','cinco':'5','seis':'6','siete':'7','ocho':'8','nueve':'9','cero':'0'}
@@ -21,9 +22,9 @@ dic_u_medidas=['kilo','litro']
 valor = []
 @app.route('/transcripcion',methods = ['POST','GET'])
 def transcripcion():
-    if(estado[0]):
-        guardado.clear()
-        loop.run_until_complete(Recibir_Enviar())
+    if(loop.is_running() and (not estado[0])):
+        while(loop.is_running()):
+            resultados=[]
         resultados=[]
         for i in guardado:
             menor=i.lower()
@@ -45,6 +46,9 @@ def transcripcion():
                 elif (i[:-1] in dic_productos):
                     lista[2]=i[:-1]
             valor.append(lista)
+    elif(estado[0] and (not loop.is_running())):
+        guardado.clear()
+        loop.run_until_complete(Recibir_Enviar())
     return render_template('transcripcion.html', texto=guardado,valores=valor)
 
 @app.route('/transenviplay')
